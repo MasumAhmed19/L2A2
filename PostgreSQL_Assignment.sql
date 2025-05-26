@@ -124,7 +124,7 @@ SELECT sighting_id,
 FROM sightings;
 
 -- PROBLEM 09 : Delete rangers who have never sighted any specie
-select DISTINCT ranger_id from sightings;
+select  ranger_id from sightings;
 
 
 
