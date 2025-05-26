@@ -113,7 +113,6 @@ UPDATE species
 set conservation_status = 'Historic'
 where EXTRACT(YEAR FROM discovery_date) < 1800;
 
-
 -- PROBLEM 08 : Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
 SELECT sighting_id,
   CASE
@@ -124,7 +123,14 @@ SELECT sighting_id,
 FROM sightings;
 
 -- PROBLEM 09 : Delete rangers who have never sighted any specie
-select  ranger_id from sightings;
+
+
+Delete from rangers
+where ranger_id not in (
+  select DISTINCT ranger_id from sightings
+);
+
+
 
 
 
